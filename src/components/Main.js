@@ -1,49 +1,52 @@
-import React, { useState, useEffect } from 'react';
-import CreateTask from './CreateTask';
-import './Components.css';
-import { nanoid } from 'nanoid';
-import TaskList from './TaskList';
+import React, { useState, useEffect } from "react";
+import CreateTask from "./CreateTask";
+import "./Components.css";
+import { nanoid } from "nanoid";
+import TaskList from "./TaskList";
 
 export default function Main() {
-    const [list, setList] = useState(() => {
-        return JSON.parse(localStorage.getItem("savedList")) ?? [];
-      });
-      
-      useEffect(() => {
-        localStorage.setItem("savedList", JSON.stringify(list));
-      }, [list]);
+  const [list, setList] = useState(() => {
+    return JSON.parse(localStorage.getItem("savedList")) ?? [];
+  });
 
-    const addTask = (task) => {
-        const newTask = {
-            id: nanoid(),
-            text: task,
-            isComplete: false,
-        };
+  useEffect(() => {
+    localStorage.setItem("savedList", JSON.stringify(list));
+  }, [list]);
 
-        setList((prevList) => [...prevList, newTask]);
+  const addTask = (task) => {
+    const newTask = {
+      id: nanoid(),
+      text: task,
+      isComplete: false,
     };
 
-    const deleteTask = (taskId) => {
-        setList((prevList) => prevList.filter((task) => task.id !== taskId));
-    };
+    setList((prevList) => [...prevList, newTask]);
+  };
 
-    const completeTask = (id) => {
-        const newList = list.map(item => {
-            if (item.id === id) {
-                return { ... item, isComplete: !item.isComplete}
+  const deleteTask = (taskId) => {
+    setList((prevList) => prevList.filter((task) => task.id !== taskId));
+  };
 
-            } else {
-                return item;
-            }
-        });
-        setList([...newList])
-    }
+  const completeTask = (id) => {
+    const newList = list.map((item) => {
+      if (item.id === id) {
+        return { ...item, isComplete: !item.isComplete };
+      } else {
+        return item;
+      }
+    });
+    setList([...newList]);
+  };
 
-    return (
-        <div className='main'>
-            <h3 className='title'>Список задач</h3>
-            <CreateTask addTask={addTask} />
-            <TaskList tasks={list} deleteTask={deleteTask} completeTask={completeTask} />
-        </div>
-    );
+  return (
+    <div className="main">
+      <h3 className="title">Список задач</h3>
+      <CreateTask addTask={addTask} />
+      <TaskList
+        tasks={list}
+        deleteTask={deleteTask}
+        completeTask={completeTask}
+      />
+    </div>
+  );
 }
