@@ -1,0 +1,85 @@
+/* Components.css */
+
+/* Add some styles to the main container */
+.main {
+  max-width: 600px;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #f4f4f4;
+  border-radius: 8px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+/* Style the title */
+.title {
+  color: #333;
+  text-align: center;
+}
+
+/* Style the form for creating tasks */
+form {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 20px;
+}
+
+input {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+button {
+  padding: 8px 16px;
+  background-color: #4caf50;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Style the task list */
+.list {
+  list-style: none;
+  padding: 0;
+}
+
+.task {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  margin-bottom: 8px;
+  padding: 8px;
+}
+
+/* Style the task text */
+.task p {
+  flex: 1;
+  margin: 0;
+  cursor: pointer;
+}
+
+/* Style the complete task text */
+.task p.complete {
+  text-decoration: line-through;
+  color: #555;
+}
+
+/* Style the delete button */
+.btn {
+  background-color: #e74c3c;
+  color: #fff;
+  border: none;
+  padding: 8px 16px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Style the delete button on hover */
+.btn:hover {
+  background-color: #c0392b;
+}
