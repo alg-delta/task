@@ -9,7 +9,7 @@ export default function TaskList({ tasks, deleteTask, completeTask }) {
                     <p onClick={() => completeTask(task.id)}  className={task.isComplete ? "complete" : "notcomplete"}>{task.text}</p>
                     <button
                         type="button"
-                        className='btn'
+                        className='btn buton'
                         onClick={() => deleteTask(task.id)}
                     >
                         Видалити
