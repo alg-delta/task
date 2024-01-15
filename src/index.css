@@ -87,6 +87,7 @@ input::placeholder {
 
 @media (max-width: 600px) {
   .main {
+    max-width: 100%;
     width: 100%;
     /* ширина */
     font-size: 50px;
